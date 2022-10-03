@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Лаб. №4</title>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body{
+                color: #1C2826;
+                margin: 20px;
+                background-color: #EEF4D4;
+            }
+            h1{
+                padding-left: 36%;
+                padding-bottom: 20px;
+            }
+            /* #theright{
+                padding-top: 22px;
+            } */
+            .mb-3{
+                width: 50%;
+            }
+            .table{
+                border-left: solid;
+                border-right: solid;
+                border-top: solid;
+                border-bottom: solid;
+                width: 80%;
+            }
+            #total{
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: x-large;
+            }
+            h3{
+                padding-top: 50px;
+            }
+            .btn-primary{
+                background-color: #D64550;
+                border-color: #D64550;
+                color: #1c2826;
+            }
+            .btn-primary:hover{
+                background-color: #EA9E8D;
+                border-color: #EA9E8D;
+                color: #1c2826;
+            }
+            .btn-primary:focus{
+                background-color: #EA9E8D;
+                border-color: #EA9E8D;
+                color: #1c2826;
+            }
+        </style>
+        <script>
+            var n = 1;
+            function addToTable(){
+                var name = document.getElementById("name").value;
+                var price = document.getElementById("price").value;
+                var nextRow = document.createElement("tr");
+                nextRow.innerHTML = "<th>"+ n +"</th><td>"+ name +"</td>";
+                var priceCol = document.createElement("td"); priceCol.className = "priceClass"; priceCol.textContent=price; 
+                priceCol.setAttribute("onmouseover","mouseOver(this)"); priceCol.setAttribute("onmouseout","mouseOut(this)");
+                nextRow.appendChild(priceCol);
+                document.getElementById("result").appendChild(nextRow);
+                n+=1;
+            }
+
+            function calcPrice(){
+                var prices = document.getElementsByClassName("priceClass");
+                var summ = 0;
+                for(let i=0; i<prices.length; i++){
+                    summ += parseInt(prices[i].textContent);
+                }
+                document.getElementById("total").innerHTML = summ;
+            }
+            function mouseOver(el){
+                el.style.backgroundColor = "yellow";
+            }
+            function mouseOut(el){
+                el.style.backgroundColor = " #EEF4D4";
+            }
+
+            function addFromTable(){
+                for(i = 1; i<6; i++){
+                    var cur_cb = document.getElementById("cb" + i);
+                    if(cur_cb.checked){
+                        var name = document.getElementById("name"+i).textContent;
+                        var price = document.getElementById("price"+i).textContent;
+                        var nextRow = document.createElement("tr");
+                        nextRow.innerHTML = "<th>"+ n +"</th><td>"+ name +"</td>";
+                        var priceCol = document.createElement("td"); priceCol.className = "priceClass"; priceCol.textContent=price; 
+                        priceCol.setAttribute("onmouseover","mouseOver(this)"); priceCol.setAttribute("onmouseout","mouseOut(this)");
+                        nextRow.appendChild(priceCol);
+                        document.getElementById("result").appendChild(nextRow);
+                        n+=1;                        
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Оформление заказов</h1>
+        <div class="row">
+        <div id="theleft" class="col-4">
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Наименование</label>
+                    <input  class="form-control" id="name" style="background-color: #DAEFB3;">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Стоимость</label>
+                    <input type="number" class="form-control" id="price" style="background-color: #DAEFB3;">
+                </div>
+                  <button type="button" class="btn btn-primary" onclick="addToTable()">Добавить</button>
+                  <button type="button" class="btn btn-primary" onclick="calcPrice()">Рассчитать стоимость</button>
+            </form>
+            <h3>Стоимость заказа: </h3>
+            <div id="total"></div>
+        </div>
+        <div id="theright" class="col-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Наименование</th>
+                      <th scope="col">Стоимость (&#8381;)</th>
+                    </tr>
+                </thead>
+                  <tbody id="result">
+                    <!-- <tr><th>1</th><td>тут наим</td><td>тут стоим</td></tr> -->
+                  </tbody>
+            </table>            
+        </div>
+        <div class="col-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">Выбор</th>
+                      <th scope="col">Наименование</th>
+                      <th scope="col">Стоимость (&#8381;)</th>
+                    </tr>
+                </thead>
+                  <tbody>
+                    <tr><th><input class="form-check-input" type="checkbox" value="" id="cb1"></th><td id="name1">Томаты</td><td  id="price1">159</td></tr>
+                    <tr><th><input class="form-check-input" type="checkbox" value="" id="cb2"></th><td id="name2">Салат</td><td  id="price2">59</td></tr>
+                    <tr><th><input class="form-check-input" type="checkbox" value="" id="cb3"></th><td id="name3">Огурцы</td><td  id="price3">131</td></tr>
+                    <tr><th><input class="form-check-input" type="checkbox" value="" id="cb4"></th><td id="name4">Виноград</td><td  id="price4">66</td></tr>
+                    <tr><th><input class="form-check-input" type="checkbox" value="" id="cb5"></th><td id="name5">Бананы</td><td  id="price5">127</td></tr>
+                  </tbody>
+            </table>
+            <div>
+                <button type="button" class="btn btn-primary" onclick="addFromTable()">Добавить выбранные</button>                
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
