@@ -1,0 +1,10 @@
+def calc(x)
+    a = 1 - (1+(Math.sin(x)).abs)**(0.5)
+    b = 2 + (Math.cos(x))**2
+    y = a/b
+    return y
+end
+
+puts("Input some value: ")
+x = gets.chomp.to_f
+puts(calc(x).round(8))

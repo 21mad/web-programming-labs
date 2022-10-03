@@ -1,0 +1,47 @@
+def correct(str)
+    result = ""
+    corrects_total = 0
+    words_arr = str.split(" ")
+    words_arr.each do |word|
+        correct_status = true
+        word.each_char do |ch|
+            if !(letter?(ch) || numeric?(ch))
+                correct_status = false
+                break
+            end
+        end
+        if correct_status && numeric?(word[0])
+            word[0] = "_"
+            corrects_total += 1 if !correct_status  
+        end
+        result += " #{word}" if correct_status 
+        corrects_total += 1 if !correct_status               
+    end
+    result += "    |total corrects: #{corrects_total}"
+    return result  
+end
+
+def letter?(lookAhead)
+    lookAhead.match?(/[[:alpha:]]/)
+end
+  
+def numeric?(lookAhead)
+    lookAhead.match?(/[[:digit:]]/)
+end
+
+puts("---String correction---")
+puts("Input some strings or <end>: ")
+
+s1 = gets.chomp
+s_arr = []
+s_arr[0] = s1
+i = 0
+while s1 != "end" do
+    s_arr[i] = s1
+    i += 1
+    s1 = gets.chomp
+end
+puts("---Corrected version---")
+s_arr.each do |s|
+    puts(correct(s))
+end
