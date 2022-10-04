@@ -4,7 +4,3 @@ def calc(x)
     y = a/b
     return y
 end
-
-puts("Input some value: ")
-x = gets.chomp.to_f
-puts(calc(x).round(8))

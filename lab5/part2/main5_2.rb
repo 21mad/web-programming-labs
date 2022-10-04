@@ -13,7 +13,3 @@ def palindrom?(str)
         return "No, " + test + "is a palindrom."
     end
 end
-
-puts("Input a string: ")
-s1 = gets
-puts(palindrom?(s1))
