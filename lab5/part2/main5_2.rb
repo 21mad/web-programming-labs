@@ -10,6 +10,6 @@ def palindrom?(str)
     if res
         return 'Yes, ' + test + ' is a palindrom.'
     else
-        return 'No, ' + test + 'is a palindrom.'
+        return 'No, ' + test + ' is not a palindrom.'
     end
 end

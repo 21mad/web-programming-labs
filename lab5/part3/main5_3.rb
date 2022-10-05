@@ -1,5 +1,5 @@
 def correct(str)
-    result = ""
+    result = ''
     corrects_total = 0
     words_arr = str.split(' ')
     words_arr.each do |word|
@@ -14,7 +14,7 @@ def correct(str)
             word[0] = "_"
             corrects_total += 1 unless correct_status
         end
-        result += " #{word}" if correct_status 
+        result += "#{word} " if correct_status 
         corrects_total += 1 unless correct_status            
     end
     result += "    |total corrects: #{corrects_total}"
