@@ -56,13 +56,15 @@
             function addToTable(){
                 var name = document.getElementById("name").value;
                 var price = document.getElementById("price").value;
-                var nextRow = document.createElement("tr");
-                nextRow.innerHTML = "<th>"+ n +"</th><td>"+ name +"</td>";
-                var priceCol = document.createElement("td"); priceCol.className = "priceClass"; priceCol.textContent=price; 
-                priceCol.setAttribute("onmouseover","mouseOver(this)"); priceCol.setAttribute("onmouseout","mouseOut(this)");
-                nextRow.appendChild(priceCol);
-                document.getElementById("result").appendChild(nextRow);
-                n+=1;
+                if(price > 0){
+                    var nextRow = document.createElement("tr");
+                    nextRow.innerHTML = "<th>"+ n +"</th><td>"+ name +"</td>";
+                    var priceCol = document.createElement("td"); priceCol.className = "priceClass"; priceCol.textContent=price; 
+                    priceCol.setAttribute("onmouseover","mouseOver(this)"); priceCol.setAttribute("onmouseout","mouseOut(this)");
+                    nextRow.appendChild(priceCol);
+                    document.getElementById("result").appendChild(nextRow);
+                    n+=1;
+                }
             }
 
             function calcPrice(){
