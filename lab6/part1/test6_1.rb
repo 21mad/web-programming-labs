@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require_relative 'main6_1'
 
 RSpec.describe Task do
-  let(:tasker){Task.new}
+  let(:tasker) { Task.new }
 
   it 'should calculate correctly' do
     expect(tasker.calculate(0.00001)).to eq(0.055546271538918585)
