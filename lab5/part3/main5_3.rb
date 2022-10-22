@@ -14,7 +14,7 @@ def correct(str)
     end
     if correct_status && numeric?(word[0])
       word[0] = '_'
-      corrects_total += 1 unless correct_status
+      corrects_total += 1
     end
     result += "#{word} " if correct_status
     corrects_total += 1 unless correct_status
