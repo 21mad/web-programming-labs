@@ -11,17 +11,17 @@ class Task
   def calculate(eee)
     k = 1
     summ = elem(k)
-    while (summ - @real).abs >= eee
-      k += 1
+    while (summ - @real).abs <= eee
       summ += elem(k)
+      k += 1
     end
-    @iter_count = k - 1
+    @iter_count = k
     summ
   end
 
   private
 
   def elem(k)
-    1.0 / (k * (k + 1) * (k + 2) * (k + 3))
+    p 1.0 / (k * (k + 1) * (k + 2) * (k + 3))
   end
 end
