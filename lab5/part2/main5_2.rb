@@ -2,7 +2,6 @@
 
 def correct(str)
   test = ''
-  res = false
   str.each_char do |ch|
     test += ch if ch.match?(/[0-9a-z]/)
   end

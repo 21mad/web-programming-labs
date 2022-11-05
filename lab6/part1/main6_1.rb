@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Task
 class Task
   attr_reader :iter_count
 
@@ -21,7 +22,7 @@ class Task
 
   private
 
-  def elem(k)
-    p 1.0 / (k * (k + 1) * (k + 2) * (k + 3))
+  def elem(val)
+    p 1.0 / (val * (val + 1) * (val + 2) * (val + 3))
   end
 end
