@@ -18,7 +18,7 @@ class Task
     @@file_f = File.open('F.txt')
     @@file_h = File.new('H.txt', 'w')
     str = @@file_f.readline
-    new_str = str.chars.select.with_index { |_ch, id| (id > 0) && (str[id - 1] == 'a') }.join
+    new_str = str.chars.select.with_index { |_ch, id| id.positive? && (str[id - 1] == 'a') }.join
     @@file_h.write(new_str)
     @@file_h.close
   end
