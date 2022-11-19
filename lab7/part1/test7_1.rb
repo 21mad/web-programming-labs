@@ -12,5 +12,18 @@ RSpec.describe Task do
     Task.make_files(rand_str)
     test_file = File.open('H.txt', 'r')
     expect(p(test_file.readline)).to eq(rand_word)
+    test_file.close
+  end
+
+  it 'H.txt should be empty' do
+    rand_str = Faker::Lorem.characters(number: rand(100..150)).chars.reject { |ch| ch == 'a' }.join # string without 'a'
+    Task.make_files(rand_str)
+    expect(File.zero?('H.txt')).to eq(true)
+  end
+
+  it '2 files should exist' do
+    rand_str = Faker::Lorem.characters(number: rand(100..150))
+    Task.make_files(rand_str)
+    expect(File.exist?('F.txt') && File.exist?('H.txt'))
   end
 end

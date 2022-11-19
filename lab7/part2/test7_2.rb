@@ -6,8 +6,9 @@ RSpec.describe Board do
   let(:board) { Board.new(40, 30) }
 
   it 'should has child Box' do
-    child_classes = ObjectSpace.each_object(Class).select { |klass| klass < Board }
-    expect(child_classes.include?(Box)).to eq(true)
+    # child_classes = ObjectSpace.each_object(Class).select { |klass| klass < Board }
+    # expect(child_classes.include?(Box)).to eq(true)
+    expect(Box.ancestors.include? Board).to eq(true)
   end
 
   it 'should calculate area correctly' do
