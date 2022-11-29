@@ -1,0 +1,19 @@
+<?xml-stylesheet type="text/xsl" href="some_transformer.xslt"?>
+<objects type="array">
+    <object>
+        <length type="integer">2</length>
+        <segment>6 28</segment>
+    </object>
+    <object>
+        <length type="integer">1</length>
+        <segment>8128</segment>
+    </object>
+    <object>
+        <length type="integer">3</length>
+        <segment>8128 496 28</segment>
+    </object>
+    <object>
+        <length type="integer">2</length>
+        <segment>6 6</segment>
+    </object>
+</objects>
